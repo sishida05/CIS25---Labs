@@ -2,30 +2,17 @@
 #include <iomanip>
 using namespace std;
 
-void gradeAmt() {
-    double scoreAmt;
-    cout << "How many scores would you like to grade?" << endl;
-    cin >> scoreAmt;
-    if (scoreAmt <= 0) {
-        cout << "Invalid amount. Please try again." << endl;
-        gradeAmt();
-    }
-}
-
 void getScores(double* arr, int size) {
     int score;
     for (int i = 0; i < size; i++) {
         cout << "Please enter the score for Grade " << i << ": " << endl;
         cin >> score;
-        while (score < 0) {
+        if (score < 0) {
            cout << "Invalid score. Please try again." << endl;
-           if (score >= 0) {
-            break;
-           }
         }
         arr[i] = score;
+        cout << "Scores: " << arr[i] << " " << endl;
     }
-    cout << "Scores: " << score << " " << endl;
 }
 
 void sortScores(double* arr, int size) {
@@ -37,7 +24,6 @@ void sortScores(double* arr, int size) {
             }
         }
     }
-    
 }
 
 double calculateAverage(const double* arr, int size) {
@@ -50,22 +36,29 @@ double calculateAverage(const double* arr, int size) {
 
 int main() {
 
-    gradeAmt();
-
-    double * ptr;
-    double grades[scoreAmt];
-    *ptr = grades[scoreAmt];
+    double* arr = nullptr;
+    int classSize;
+    cout << "How many scores would you like to grade?" << endl;
+    cin >> classSize;
+    while (classSize <= 0) {
+        cout << "Invalid amount. Please try again." << endl;
+        if (classSize >= 0) {
+            break;
+        }
+    }
+    
+    arr = new double[classSize];
 
     cout << fixed << setprecision(2) << endl;
 
-    getScores(grades, scoreAmt);
+    getScores(arr, classSize);
     cout << endl;
-    sortScores(grades, scoreAmt);
+    sortScores(arr, classSize);
     cout << endl;
-    cout << "Average Score: " << calculateAverage(grades, scoreAmt) << endl;
+    cout << "Average Score: " << calculateAverage(arr, classSize) << endl;
 
-    delete ptr;
-    ptr = nullptr;
+    delete[] arr;
+    arr = nullptr;
     
     return 0;
 }
