@@ -3,7 +3,7 @@
 using namespace std;
 
 void getScores(double* arr, int size) {
-    int score;
+    double score;
     for (int i = 0; i < size; i++) {
         cout << "Please enter the score for Grade " << i + 1 << ": " << endl;
         cin >> score;
@@ -20,14 +20,16 @@ void sortScores(double* arr, int size) {
             if (arr[j] > arr[j + 1]) {
                 swap(arr[j], arr[j + 1]);
             }
-            cout << arr[j] << " ";
         }
+    }
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " "; 
     }
     cout << endl;
 }
 
 double calculateAverage(const double* arr, int size) {
-    double sum;
+    double sum = 0;
     for (int i = 0; i < size; i++) {
         sum += arr[i];
     }
@@ -36,17 +38,15 @@ double calculateAverage(const double* arr, int size) {
 
 int main() {
 
-    double* arr = nullptr;
     int classSize;
     cout << "How many scores would you like to grade?" << endl;
     cin >> classSize;
-    while (classSize <= 0) {
+    if (classSize <= 0) {
         cout << "Invalid amount. Please try again." << endl;
-        if (classSize >= 0) {
-            break;
-        }
+        return 1;
     }
     
+    double* arr = nullptr;
     arr = new double[classSize];
 
     cout << fixed << setprecision(2) << endl;
@@ -60,6 +60,6 @@ int main() {
 
     delete[] arr;
     arr = nullptr;
-    
+
     return 0;
 }
