@@ -5,13 +5,12 @@ using namespace std;
 void getScores(double* arr, int size) {
     int score;
     for (int i = 0; i < size; i++) {
-        cout << "Please enter the score for Grade " << i << ": " << endl;
+        cout << "Please enter the score for Grade " << i + 1 << ": " << endl;
         cin >> score;
         if (score < 0) {
            cout << "Invalid score. Please try again." << endl;
         }
         arr[i] = score;
-        cout << "Scores: " << arr[i] << " " << endl;
     }
 }
 
@@ -20,14 +19,15 @@ void sortScores(double* arr, int size) {
         for (int j = 0; j < size - i - 1; ++j) {
             if (arr[j] > arr[j + 1]) {
                 swap(arr[j], arr[j + 1]);
-                cout << "Sorted scores: " << arr[j] << " " << endl;
             }
+            cout << arr[j] << " ";
         }
     }
+    cout << endl;
 }
 
 double calculateAverage(const double* arr, int size) {
-    int sum;
+    double sum;
     for (int i = 0; i < size; i++) {
         sum += arr[i];
     }
@@ -53,6 +53,7 @@ int main() {
 
     getScores(arr, classSize);
     cout << endl;
+    cout << "Sorted scores: "; 
     sortScores(arr, classSize);
     cout << endl;
     cout << "Average Score: " << calculateAverage(arr, classSize) << endl;
