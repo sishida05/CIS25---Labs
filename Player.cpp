@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-Player::Player() {
+Player::Player() : inventory(10) {
     name = "Hero";
     health = 100;
     maxHealth = 100;
@@ -50,4 +50,14 @@ void Player::takeDamage(int damage) {
 
 void Player::displayStatus() {
     cout << name << " - HP: " << health << "/" << maxHealth << endl;
+}
+
+Inventory::void showInventory() const {
+    inventory.display();
+    return;
+}
+
+Inventory::void addItem(const Item& item) {
+    inventory.addItem(item);
+    return;
 }
