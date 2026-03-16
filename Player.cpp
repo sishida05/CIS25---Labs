@@ -14,8 +14,6 @@ Player::Player(string name, int health, int attackPower) : inventory(10) {
     this->health = health;
     this->attackPower = attackPower;
     this->maxHealth = health;
-    this->inventory = Inventory(10);
-    
 }
 
 Player::~Player() {
