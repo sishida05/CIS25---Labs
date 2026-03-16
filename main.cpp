@@ -16,7 +16,7 @@ int main() {
     hero.addItem(boots);
     hero.addItem(junk);
 
-    cout << "The total number of items is: " << Items::getTotalItems() << endl;
+    cout << "The total number of items is: " << Item::getTotalItems() << endl;
    
     Player wizard("Momo", 120, 15);
 

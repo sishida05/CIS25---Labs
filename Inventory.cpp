@@ -9,10 +9,10 @@ Inventory::Inventory(int capacity) {
 }
 
 Inventory::~Inventory() {
-    delete items;
+    delete[] items;
 }
 
-Inventory::bool addItem(const Items& item) {
+bool Inventory::addItem(const Item& item) {
     if (itemCount < capacity) {
         items[itemCount] = item;
         Item::incrementTotalItems();
@@ -23,7 +23,7 @@ Inventory::bool addItem(const Items& item) {
         return false;
     }
 }
-
-Inventory::void display() const {
+void Inventory::display() const {
     cout << "The inventory has " << itemCount << " items." << endl;
+    return;
 }

@@ -31,7 +31,6 @@ class Player {
         void showInventory() const;
         void addItem(const Item& item);
 
-
 };
 
 #endif

@@ -2,30 +2,31 @@
 #include <iostream>
 using namespace std;
 
-static int Item::totalItems = 0;
+int Item::totalItems = 0;
 
 
-Item::Item(string name = "Scrap", int value = 0) {
+Item::Item(string name, int value) {
     this->name = name;
     this->value = value;
 }
 
-Item::getTotalItems() {
+int Item::getTotalItems() {
     return totalItems;
 }
 
-Item::incrementTotalItems() {
-    totalItems++;
+void Item::incrementTotalItems() {
+    totalItems += 1;
 }
 
-Item::string getName() const {
+string Item::getName() const {
     return name;
 }
 
-Item::int getValue() const {
+int Item::getValue() const {
     return value;
 }
 
-Item::void display() const {
+void Item::display() const {
     cout << "[" << getName() << "]" << " (Value: " << getValue() << ")" << endl;
+    return;
 }

@@ -1,5 +1,3 @@
-#ifndef ITEM_H
-#define ITEM_H
 #include <iostream>
 using namespace std;
 
@@ -11,7 +9,7 @@ class Item {
         int value;
 
     public:
-        Item(string name = "Scrap", int value = 0;);
+        Item(string name = "Scrap", int value = 0);
         static int getTotalItems();
         static void incrementTotalItems();
         string getName() const;
@@ -19,5 +17,3 @@ class Item {
         void display() const;
 
 };
-
-#endif

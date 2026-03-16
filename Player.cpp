@@ -9,11 +9,13 @@ Player::Player() : inventory(10) {
     attackPower = 10;
 }
 
-Player::Player(string name, int health, int attackPower) {
+Player::Player(string name, int health, int attackPower) : inventory(10) {
     this->name = name;
     this->health = health;
     this->attackPower = attackPower;
     this->maxHealth = health;
+    this->inventory = Inventory(10);
+    
 }
 
 Player::~Player() {
@@ -50,14 +52,15 @@ void Player::takeDamage(int damage) {
 
 void Player::displayStatus() {
     cout << name << " - HP: " << health << "/" << maxHealth << endl;
+    return;
 }
 
-Inventory::void showInventory() const {
+void Player::showInventory() const {
     inventory.display();
     return;
 }
 
-Inventory::void addItem(const Item& item) {
+void Player::addItem(const Item& item) {
     inventory.addItem(item);
     return;
 }
